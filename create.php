@@ -1,5 +1,17 @@
 <?php
  $con = new mysqli("localhost", "root", "", "loginsystem");
+ if($_POST['create'])
+ {
+      $que=$_POST['que'];
+      $sql= $con->prepare("INSERT INTO forum (que) VALUES (?)");
+      $sql->bind_param("s",$que);
+      $sql->execute();
+      $res = $con->query($sql);
+      header("Location: forum.php");
+      exit();
+
+
+ }
 ?>
 <!DOCTYPE html>
 <html>
@@ -129,28 +141,14 @@
         <div class="faqdetails" align="center">
         <h1 class="fs"> Forum </h1>
         <p><a href="forum.php">Index</a> | <a href="create.php">Add question</a> | <a href="edit.php">Add Answers</a></p>
-        </div>
-        <div>
-        <?php
-        $sql="SELECT * FROM forum";
-        $res = $con->query($sql);
-        if ($res->num_rows>0)
-        {
-            while($row =$res->fetch_assoc())
-            {
-                $que = $row['que'];
-                $ans = $row['ans'];
-                echo '<div class = "faqdetails"><span class= "que"><b>Question:  '.$que.'</b></span><hr><div class="faqdetails">Answer:  '.$ans.'<hr></div></div>';
-            }
+        <h3>Add new question</h3>
+        <form action="create.php" method="post">
+        Question:<input type="text" name="que" size="70"><br><br>
+        <input type="submit" name="create" value="Add Question">
+        </form>
 
-        }
-        else
-        {
-            echo "There are no questions at this time";
+        </div>
+        </div>
 
-        }
-        ?>
-        </div>
-        </div>
 </body>
 </html>
