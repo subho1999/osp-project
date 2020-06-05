@@ -22,13 +22,13 @@ if(isset($_POST['login-submit'])) {
       }
       else {
         $row = $result->fetch_assoc();
-        // if (!password_verify($password, $row['pswd'])) {
-        //   header("Location: login.php?login=wrongpass&username=$username");
-        //   // exit();
-        // }
-        if ($password != $row['pswd']) {
+        if (!password_verify($password, $row['pswd'])) {
           header("Location: login.php?login=wrongpass&username=$username");
+          // exit();
         }
+        // if ($password != $row['pswd']) {
+        //   header("Location: login.php?login=wrongpass&username=$username");
+        // }
         else {
           header("Location: login.php?login=success");
         }

@@ -42,10 +42,7 @@
 		</form>
 
 		<?php
-			if (!isset($_GET['login'])){
-				exit();
-			}
-			else {
+			if (isset($_GET['login'])){
 				$loginCode = $_GET['login'];
 				if ($loginCode == "emptyfields") {
 					echo "<script>
@@ -73,7 +70,7 @@
 				}
 				elseif ($loginCode == "success") {
 					header("Location: homepage.php?homepage=loginsuccess");
-					exit();
+					// exit();
 				}
 			}
 		?>

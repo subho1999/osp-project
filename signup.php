@@ -85,10 +85,7 @@
 		</form>
 
 		<?php
-			if (!isset($_GET['signup'])) {
-				exit();
-			} 
-			else {
+			if (isset($_GET['signup'])) {
 				$signupCode = $_GET['signup'];
 				if ($signupCode == "emptyfields") {
 					echo "<script>
@@ -119,6 +116,9 @@
 							document.getElementById('error-message').innerText = 'SQL Connection Error';
 							document.getElementById('myModal').style.display = 'block';
 							</script>";
+				}
+				elseif ($signupCode == "success") {
+					header("Location: login.php?login=signupsuccess");
 				}
 			}
 
