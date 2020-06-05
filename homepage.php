@@ -14,7 +14,8 @@
             <img align="left" src="img/logo1.png">
             <a id="abc"class="ab" href="homepage.php">Home</a>
 			<a class="ab" href="aboutus.php">About</a>
-			<a class="ab" href="faqs.php">FAQs</a>
+			<!-- <a class="ab" href="faqs.php">FAQs</a> -->
+		    <a class="ab" href="forum.php">Forum</a>
 			<!-- <a href="#">Chat</a> -->
 			<a class="ab" href="books.php">Books</a>	
 			<a class="ab" href="qp.php">Question Papers</a>
