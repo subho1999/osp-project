@@ -1,14 +1,12 @@
 <?php
 if(isset($_POST['login-submit'])) {
 
-  // require 'dbh.inc.php';
   $con = new mysqli("localhost", "root", "", "loginsystem");
   $username = $_POST['username'];
   $password = $_POST['password'];
 
   if (empty($username) || empty($password)) {
     header("Location: login.php?login=emptyfields");
-    // exit();
   }
   else {
     $sql = "SELECT usnm, pswd FROM users WHERE usnm=?";
@@ -18,17 +16,12 @@ if(isset($_POST['login-submit'])) {
       $result = $stmt->get_result();
       if ($result->num_rows == 0) {
         header("Location: login.php?login=notexists");
-        // exit();
       }
       else {
         $row = $result->fetch_assoc();
         if (!password_verify($password, $row['pswd'])) {
           header("Location: login.php?login=wrongpass&username=$username");
-          // exit();
         }
-        // if ($password != $row['pswd']) {
-        //   header("Location: login.php?login=wrongpass&username=$username");
-        // }
         else {
           header("Location: login.php?login=success");
         }

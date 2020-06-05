@@ -70,7 +70,12 @@
 				}
 				elseif ($loginCode == "success") {
 					header("Location: homepage.php?homepage=loginsuccess");
-					// exit();
+				}
+				elseif ($loginCode == "signupsuccess") {
+					echo "<script>
+							document.getElementById('error-message').innerText = 'Congrats You are now signed up! Login to continue.';
+							document.getElementById('myModal').style.display = 'block';
+							</script>";
 				}
 			}
 		?>
