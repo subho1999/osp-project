@@ -18,6 +18,7 @@ if(isset($_POST['signup-submit'])){
     //     header("Location: signup.php?error=invalidemailusername");
     //     exit();
     // }
+    //hello
     elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         header("Location: signup.php?signup=invalidemail&name=$name&regno=$regno&branch=$branch");
         exit();
