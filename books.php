@@ -92,7 +92,23 @@
 		.box hr{
 			border: 1px solid black;
 		}
-	
+		.btn1{
+			padding:20px;
+		}
+		.btn, .upl{
+			display: inline-block;
+		}
+		input[type="file"]{
+			display:none;
+		}
+		.custom-file-upload{
+			border: 1px solid #ccc;
+			display: inline-block;
+			padding: 6px 12px;
+			cursor: poiner;
+			background-color: blue;
+		}
+		
 	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
 </head>
@@ -126,7 +142,13 @@
 
 	<div class="box is-bordered">
 		<hr>
-		<h2 class="subtitle">Basic Electrical and Electronics Engineering(EEE 1001) </h2>
+		<div class="btn1">
+			<h2 class="subtitle btn">Basic Electrical and Electronics Engineering(EEE 1001) </h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<label for="file-upload" class="custom-file-upload">
+				<input type="text" disabled placeholder="upload file">Click here to upload
+			</label>
+			<input id="file-upload" type="file"/>
+		</div>
 		<div class="columns">
 
 			<div class="column">
@@ -140,7 +162,13 @@
 			</div>
 		</div>
 		<hr>
-		<h2 class="subtitle">Engineering Physics(PHY 1701) </h2>
+		<div class="btn1">
+		<h2 class="subtitle btn">Engineering Physics(PHY 1701) </h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<label for="file-upload" class="custom-file-upload">
+				<input type="text" disabled placeholder="upload file">Click here to upload
+			</label>
+			<input id="file-upload" type="file"/>
+		</div>
 		<div class="columns">
 			<div class="column">
 				<a href="Books/P1.pdf"><img src="img/BP1.PNG" alt=""></a>
@@ -153,7 +181,13 @@
 			</div>
 		</div>
 		<hr>
-		<h2 class="subtitle">Engineering Chemistry(CHY 1701) </h2>
+		<div class="btn1">
+		<h2 class="subtitle btn">Engineering Chemistry(CHY 1701) </h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<label for="file-upload" class="custom-file-upload">
+				<input type="text" disabled placeholder="upload file">Click here to upload
+			</label>
+			<input id="file-upload" type="file"/>
+		</div>
 		<div class="columns">
 			<div class="column">
 				<a href="Books/C1.pdf"><img src="img/BC1.PNG" alt=""></a>
