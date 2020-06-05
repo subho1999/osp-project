@@ -6,112 +6,7 @@
 <html>
 <head>
 	<title>About Us - Communication Wizard</title>
-	<style>
-		html{
-			margin: 0;
-			padding: 0;
-		}
-		body{
-			font-family:Bahnschrift Light;
-			text-align: center;
-			width: 100%;
-			margin: 0;
-			padding: 0;
-		}
-		.heading{
-			display: flex;
-			justify-content: space-between;
-			background-color: #404040;
-			color: white;
-			padding: 1%;
-		}
-		.topnav {
-		background-color: #333;
-		overflow: hidden;
-		}
-
-		.topnav a {
-		float: left;
-		color: #f2f2f2;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
-		font-size: 125%; 
-		}
-
-		.topnav a:hover {
-		background-color: rgb(109, 109, 109);
-		color: black;
-		}
-
-		.topnav a.active {
-		background-color: rgb(72, 73, 72);
-		color: white;
-		margin-left: 660px;
-		margin-top:10px;
-		}
-
-		#abc{
-			margin-left: 40%;
-		}
-		
-		.ab{
-			margin-top:10px;
-		}
-		/* .navbar{
-			padding: 1%;
-			margin-top: 0.7%;
-			width: 60%;
-		}
-		.navbar a{
-			text-decoration: none;
-			padding: 3%;
-			color: white;
-			font-size: 110%;
-		}
-		.navbar a:hover{
-			color: grey;
-			background-color: #d9d9d9;
-		} */
-		.innovation{
-			background-color: black;
-			color: white;
-			font-size: 200%;
-			margin-top: 0;
-		}
-		
-		.aboutusBox{
-			display: flex;
-			background-color: #6699ff
-		}
-		img.img1{
-			width: 50%;
-			padding: 2%;
-		}
-		.main-slideshow-container{
-                position: relative;
-                background-image: url("img/8.jpg");
-                border-radius: 5px;
-            } 
-		.slideshow-container{
-			width: 50%;
-			margin:0 auto;
-			margin-top:1%; 
-			background-color: #ffcc66;
-		}
-		.slideshow{
-			background-color: #ffcc66;
-			padding: 1%;
-		}
-		p.aboutusDetails{
-			font-size: 1.8em;
-		}
-		.content{
-			padding-left: 1.2%;
-			width: 70%;
-			text-align: justify;
-		}
-	</style>
+	<link rel="stylesheet" href="styles/aboutus.css">
 </head>
 <body>
 
@@ -122,24 +17,17 @@
 		<a class="ab" href="faqs.php">FAQs</a>
 		<a class="ab" href="books.php">Books</a>	
 		<a class="ab" href="qp.php">Question Papers</a>
-		<a class="ab" href="login.php">Login</a>
-		<a class="ab" href="signup.php">Signup</a>
+		<?php
+			if(isset($_SESSION['loggedin'])){
+				echo '<a class="ab" href="signout.php">Welcome '.$_SESSION['loggedin'].'</a>';
+			}
+			else {
+				echo '<a class="ab" href="login.php">Login</a>
+							<a class="ab" href="signup.php">Signup</a>';
+			}
+		?>
 	</div>
 
-	<!-- <div class="heading">
-		<div class="logo">
-			<img src="img/logo1.PNG">
-		</div>
-		<div class="topnav">
-			<a id="abc" href="homepage.html">Home</a>
-			<a href="aboutus.html">About</a>
-			<a href="faqs.html">FAQs</a>
-			<a href="books.html">Books</a>	
-			<a href="qp.html">Question Papers</a>
-			<a href="login.html">Login</a>
-			<a href="signup.html">Signup</a>
-		</div>
-	</div> -->
 	<div class="slideshow">
 	<div class="slideshow-container">
                 <div class="mySlides fade">

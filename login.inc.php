@@ -6,7 +6,10 @@
 if(isset($_POST['login-submit'])) {
 
   // Check against manual page entry
-  
+  if(isset($_SESSION['loggedin'])) {
+    header("Location: homepage.php?homepage=manualpageredirect");
+    exit();
+  }
 
   require("db_connect.php");
 
@@ -31,6 +34,7 @@ if(isset($_POST['login-submit'])) {
           header("Location: login.php?login=wrongpass&username=$username");
         }
         else {
+          $_SESSION['loggedin'] = $username;
           header("Location: login.php?login=success");
         }
       }

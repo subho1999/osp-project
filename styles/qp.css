@@ -1,0 +1,97 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Bahnschrift Light;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.heading1 {
+  display: flex;
+  justify-content: space-between;
+  background-color: #404040;
+  color: white;
+  padding: 1%;
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 125%;
+}
+
+.topnav a:hover {
+  background-color: rgb(109, 109, 109);
+  color: black;
+}
+
+.topnav a.active {
+  background-color: rgb(72, 73, 72);
+  color: white;
+  margin-left: 660px;
+  margin-top: 10px;
+}
+
+#abc {
+  margin-left: 40%;
+}
+
+.ab {
+  margin-top: 10px;
+}
+/* .navbar1{
+  padding: 1%;
+  margin-top: 0.7%;
+  width: 60%;
+}
+.navbar1 a{
+  text-decoration: none;
+  padding: 3%;
+  color: white;
+  font-size: 110%;
+}
+.navbar1 a:hover{
+  color: grey;
+  background-color: #d9d9d9;
+} */
+.innovation {
+  background-color: black;
+  color: white;
+  font-size: 200%;
+}
+.columns img {
+  width: 50%;
+}
+.class1 {
+  background-color: #003d66;
+}
+hr {
+  color: black;
+}
+.main-slideshow-container {
+  position: relative;
+  background-image: url("../img/8.jpg");
+  border-radius: 5px;
+}
+.box {
+  background-color: #003d66;
+}
+.box h2 {
+  color: black;
+}
+.box hr {
+  border: 1px solid black;
+}
+.box div a img {
+  border: 2px solid black;
+}

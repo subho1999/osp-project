@@ -5,6 +5,12 @@
 <?php
 if(isset($_POST['signup-submit'])){
 
+    // Check against manual page entry
+    if(isset($_SESSION['loggedin'])) {
+        header("Location: homepage.php?homepage=manualpageredirect");
+        exit();
+    }
+
     require 'dbh.inc.php';
 
     $name = $_POST['name'];
