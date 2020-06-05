@@ -1,7 +1,15 @@
 <?php
+	session_start();
+?>
+
+<?php
 if(isset($_POST['login-submit'])) {
 
-  $con = new mysqli("localhost", "root", "", "loginsystem");
+  // Check against manual page entry
+  
+
+  require("db_connect.php");
+
   $username = $_POST['username'];
   $password = $_POST['password'];
 
