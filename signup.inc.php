@@ -60,8 +60,8 @@ if(isset($_POST['signup-submit'])){
 
                     mysqli_stmt_bind_param($stmt, "ssssss", $name, $regno, $email, $username, $hashedPwd, $branch);
                     mysqli_stmt_execute($stmt);
-                    header("Location: signup.php?signup=success");
                     //header("Location: signup.php?signup=success");
+                    header("Location: signup.php?signup=success");
                     //exit();
                 }
             }
