@@ -1,36 +1,47 @@
 <?php
 if(isset($_POST['login-submit'])) {
 
-  require 'dbh.inc.php';
-
+  // require 'dbh.inc.php';
+  $con = new mysqli("localhost", "root", "", "loginsystem");
   $username = $_POST['username'];
   $password = $_POST['password'];
 
   if (empty($username) || empty($password)) {
     header("Location: login.php?login=emptyfields");
-    exit();
+    // exit();
   }
   else {
-    $sql = "SELECT usnm FROM users WHERE usnm=?";
-    $stmt = mysqli_stmt_init($conn);
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-      header("Location: login.php?login=sqlerror");
-      exit();
-    }
-    else {
-      mysqli_stmt_bind_param($stmt, "s", $username);
-      mysqli_stmt_execute($stmt);
-      mysqli_stmt_store_result($stmt);
-      $resultCheck = mysqli_stmt_num_rows($stmt);
-      if ($resultCheck == 0) {
-        header("Location: login.php?login=usernotfound");
-        exit();
+    $sql = "SELECT usnm, pswd FROM users WHERE usnm=?";
+    if ($stmt = $con->prepare($sql)) {
+      $stmt->bind_param('s', $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      if ($result->num_rows == 0) {
+        header("Location: login.php?login=notexists");
+        // exit();
       }
       else {
-        
+        $row = $result->fetch_assoc();
+        // if (!password_verify($password, $row['pswd'])) {
+        //   header("Location: login.php?login=wrongpass&username=$username");
+        //   // exit();
+        // }
+        if ($password != $row['pswd']) {
+          header("Location: login.php?login=wrongpass&username=$username");
+        }
+        else {
+          header("Location: login.php?login=success");
+        }
       }
+      $stmt->close();
+    }
+    else {
+      header("Location: login.php?login=sqlerror");
     }
   }
+  $con->close();
 }
-
+else{
+  header("Location: login.php");
+}
 ?>

@@ -27,7 +27,6 @@
 			<span class="close">&times;</span>
 			<p id="error-message"></p>
 		</div>
-
 		</div>
 
 		<form action="signup.inc.php" method="post">
@@ -86,23 +85,6 @@
 		</form>
 
 		<?php
-			$url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-			if (strpos($url, "error=emptyfields") !== false) {
-				
-			}
-			elseif (strpos($url, "error=invalidemail") !== false) {
-				echo "<script>
-							document.getElementById('error-message').innerText = 'Invalid email';
-							document.getElementById('myModal').style.display = 'block';
-							</script>";
-			}
-			elseif (strpos($url, "error=invalidusername") !== false) {
-				echo "<script>
-							document.getElementById('error-message').innerText = 'Username should have only Alphanumeric characters';
-							document.getElementById('myModal').style.display = 'block';
-							</script>";
-			}
-
 			if (!isset($_GET['signup'])) {
 				exit();
 			} 
@@ -127,10 +109,16 @@
 							</script>";
 				}
 				elseif ($signupCode == "usertaken") {
-					
+					echo "<script>
+							document.getElementById('error-message').innerText = 'This username is taken, try with a different one';
+							document.getElementById('myModal').style.display = 'block';
+							</script>";
 				}
-				elseif ($signupCode == "success") {
-					
+				elseif ($signupCode == "sqlerror") {
+					echo "<script>
+							document.getElementById('error-message').innerText = 'SQL Connection Error';
+							document.getElementById('myModal').style.display = 'block';
+							</script>";
 				}
 			}
 
