@@ -92,8 +92,11 @@ body {
   font-size: 24px;
   font-weight: bold;
 }
-.close-btn:hover {
-  color: darkgray;
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 @-webkit-keyframes animatetop {
   from {

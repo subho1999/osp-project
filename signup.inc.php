@@ -35,7 +35,7 @@ if(isset($_POST['signup-submit'])){
     }*/
     else{
         $sql = "SELECT usnm FROM users WHERE usnm=?";
-        if ($stmt = $con->prepare($stmt)) {
+        if (!($stmt = $con->prepare($sql))) {
             header("Location: signup.php?signup=sqlerror");
         }
         else{
@@ -47,7 +47,7 @@ if(isset($_POST['signup-submit'])){
             }
             else{
                 $sql = "INSERT INTO users (name, regno, email, usnm, pswd, branch) VALUES (?, ?, ?, ?, ?, ?)";
-                if($q = $con->prepare($sql)){
+                if(!($q = $con->prepare($sql))){
                     header("Location: signup.php?signup=sqlerror");
                 }
                 else{

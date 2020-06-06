@@ -16,7 +16,7 @@
       <!-- <a class="ab" href="faqs.php">FAQs</a> -->
 		  <a class="ab" href="forum.php">Forum</a>
       <a class="ab" href="books.php">Books</a>	
-      <a class="ab" href="qp.php">Question Papers</a>
+      <!-- <a class="ab" href="qp.php">Question Papers</a> -->
       <?php
         if(isset($_SESSION['loggedin'])){
           echo '<a class="ab" href="signout.php">Welcome '.$_SESSION['loggedin'].'</a>';
@@ -35,22 +35,104 @@
       </form>
     </div> -->
     <div class="box is-bordered">
-      <button id="upload-modal-btn">Upload Books</button>
+      <button id="upload-modal-btn">Upload Book</button>
     </div>
     
     <div class="modal">
       <div class="modal-content">
         <span class="close-btn">&times;</span>
-        <p>Some text</p>
+        <p>Upload Books</p>
+        <!-- <div class="box is-bordered"> -->
+          <form action="book.upload.php" method="post" enctype="multipart/form-data" id="form">
+            <table cellspacing=10 cellpadding=10>
+              <tr>
+                <td>File: </td>
+                <td><input type="file" name="filename" id="fileinput"></td>
+              </tr>
+              <tr>
+                <td>Book: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><input type="text" name="bookname" id="bookinput"></td>
+              </tr>
+              <tr>
+                <td>Author: </td>
+                <td><input type="text" name="authorname" id="authorinput"></td>
+              </tr>
+              <tr>
+                <td>Subject: </td>
+                <td><input type="text" name="subjectname" id="subjectinput"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input type="submit" name="bookupload" value="Upload Book"></td>
+              </tr>
+            </table>
+          </form>
+        <!-- </div> -->
       </div>
     </div>
 
     <hr>
     <div>
-      <ul>
+      <!-- <ul>
         <li>item1</li>
         <li>item2</li>
-      </ul>
+      </ul> -->
+      <?php
+
+        $con = new mysqli("localhost", "root", "", "loginsystem");
+        $query = "SELECT * FROM books";
+        $res = $con->query($query);
+        if (!$res || $res->num_rows == 0) {
+          ?>
+            <center>
+              <div class="box is-bordered">
+                <h2>No Books currently in server!</h2>
+              </div>
+            </center>
+          <?php
+          
+        }
+        else {
+          ?>
+            <center>
+              <div class="box is-bordered">
+                <h2>List of Books that are currently available: </h2>
+                <hr>
+                <table cellspacing=10 cellpadding=10 border=3>
+                  <tr>
+                    <th>File Name</th>
+                    <th>Book Name</th>
+                    <th>Author Name</th>
+                    <th>Subject</th>
+                  </tr>
+                  <?php
+                  while ($row = $res->fetch_assoc()) {
+                    // Print all the files with a download link
+                    // TODO: Group the files by catgory
+                    ?>
+                    <tr>
+                      <td>
+                        <a href="uploads/books/<?php echo $row['file']; ?>"><?php echo $row['file']; ?></a>
+                      </td>
+                      <td>
+                        <?php echo $row['book']; ?>
+                      </td>
+                      <td>
+                        <?php echo $row['author']; ?>
+                      </td>
+                      <td>
+                        <?php echo $row['subject']; ?>
+                      </td>
+                    </tr>
+                    <?php
+                  }
+                  ?>
+                </table>
+              </div>
+            <center>
+          <?php
+        }
+      ?>
     </div>
   </body>
   <script>

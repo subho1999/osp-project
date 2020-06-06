@@ -19,8 +19,8 @@
 		<a class="ab" href="aboutus.php">About</a>
 		<!-- <a class="ab" href="faqs.php">FAQs</a> -->
 		<a class="ab" href="forum.php">Forum</a>
-		<a class="ab" href="books.php">Books</a>
-		<a class="ab" href="qp.php">Question Papers</a>
+		<a class="ab" href="book_1.php">Books</a>
+		<!-- <a class="ab" href="qp.php">Question Papers</a> -->
 		<a class="ab" href="login.php">Login</a>
 		<a class="ab" href="signup.php">Signup</a>
 	</div>
