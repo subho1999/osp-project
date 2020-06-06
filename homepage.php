@@ -83,5 +83,11 @@
                 <p align="center">&copy 2019</p>
             </div>
         </div>
+        <?php
+            if (isset($_GET['duration'])) {
+                $duration = $_GET['duration'];
+                echo "<script>alert('You had been logged in for ".$duration." secs')</script>";
+            }
+        ?>
     </body>
 </html>

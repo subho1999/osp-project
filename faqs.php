@@ -94,21 +94,21 @@
 				</li>
 
 				<hr>
-				<!-- <?php 
-					if(isset($_POST['postbutton'])){
-						echo "<li>".$_POST['que']."<li>";
-					}
-				?> -->
+				<?php 
+					// if(isset($_POST['postbutton'])){
+					// 	echo "<li>".$_POST['que']."<li>";
+					// }
+				?>
 			</ul>
 		</div>
 
 		<p style="font-size: 150%;"><b>Post your Questions following:</b></p>
-		<div>
+		<!-- <div>
 			<form method="POST" action="<?php $_PHP_SELF ?>">
 				<input type="text" name="que" placeholder="Question">
 				<input type="submit" name="postbutton" value="Post">
 			</form>	
-		</div>
+		</div> -->
 
 		<div class="further">
 			<h3>Got some more Queries?</h3>

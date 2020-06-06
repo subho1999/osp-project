@@ -80,7 +80,7 @@
       <?php
 
         $con = new mysqli("localhost", "root", "", "loginsystem");
-        $query = "SELECT * FROM books";
+        $query = "SELECT * FROM books ORDER BY subject";
         $res = $con->query($query);
         if (!$res || $res->num_rows == 0) {
           ?>

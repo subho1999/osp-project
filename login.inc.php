@@ -35,6 +35,9 @@ if(isset($_POST['login-submit'])) {
         }
         else {
           $_SESSION['loggedin'] = $username;
+          $t = time();
+          $cookie_name = "login_time";
+          setcookie($cookie_name, $t);
           header("Location: login.php?login=success");
         }
       }
