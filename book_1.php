@@ -112,7 +112,7 @@
                     ?>
                     <tr>
                       <td>
-                        <a href="uploads/books/<?php echo $row['file']; ?>"><?php echo $row['file']; ?></a>
+                        <a href="uploads/books/<?php echo $row['file']; ?>" download><?php echo $row['file']; ?></a>
                       </td>
                       <td>
                         <?php echo $row['book']; ?>
